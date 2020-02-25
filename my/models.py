@@ -13,3 +13,9 @@ class Neighborhood(models.Model):
     police_contact = models.PositiveIntegerField()
     hood_pic = models.ImageField(upload_to='images/', blank=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def create_neigborhood(self):
+        self.save()
+
+    def delete_neigborhood(self):
+        self.delete()

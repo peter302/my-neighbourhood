@@ -82,3 +82,15 @@ class Business(models.Model):
 
     def delete_business(self):
         self.delete()
+
+        @classmethod
+    def find_business(cls,business_id):
+        business= cls.objects.get(id=business_id)
+        return business
+
+    @classmethod
+    def update_business(cls,id,name):
+        cls.objects.filter(pk = id).update(bName=name)
+        new_name_object = cls.objects.get(bName = name)
+        new_name = new_name_object.bName
+        return new_name    

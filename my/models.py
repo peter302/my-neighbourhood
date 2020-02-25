@@ -93,4 +93,12 @@ class Business(models.Model):
         cls.objects.filter(pk = id).update(bName=name)
         new_name_object = cls.objects.get(bName = name)
         new_name = new_name_object.bName
-        return new_name    
+        return new_name
+
+
+    def __str__(self):
+
+        return self.bName
+
+    class Meta:
+        ordering =['bName']

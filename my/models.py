@@ -19,3 +19,25 @@ class Neighborhood(models.Model):
 
     def delete_neigborhood(self):
         self.delete()
+
+        @classmethod
+    def find_neigborhood(cls, neigborhood_id):
+        hood= cls.objects.get(id=neigborhood_id)
+        return hood
+
+    @classmethod
+    def update_neighborhood(cls,id,name):
+        cls.objects.filter(pk = id).update(name=name)
+        new_name_object = cls.objects.get(name = name)
+        new_name = new_name_object.name
+        return new_name
+
+    @classmethod
+    def update_occupants(cls,id,occupants):
+        cls.objects.filter(pk = id).update(occupants=occupants)
+        new_occupants_object = cls.objects.get(pk__id=id)
+        new_occupants = new_name_object.occupants
+        return new_occupants
+
+    def __str__(self):
+        return self.name    

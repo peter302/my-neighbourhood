@@ -35,3 +35,19 @@ def update_profile(request):
     else:
         form = ProfileForm(instance=request.user.profile)
         return render(request,'main/update_profile.html', {'form':form})
+
+
+def add_post(request,id):
+        current_user = request.user
+        hoods = Neighborhood.objects.get(id=id)
+        if request.method == 'POST':
+                form = PostForm(request.POST, request.FILES)
+                if form.is_valid():
+                        addpost=form.save(commit=False)
+                        post.hood = hoods
+                        addpost.user = current_user
+                        addpost.save()
+                return redirect('hood',hoods.id)
+        else:
+            form = PostForm()
+            return render(request,'main/new_post.html', {"form":form, 'hood':hoods})        

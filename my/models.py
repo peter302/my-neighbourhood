@@ -69,4 +69,10 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()        
+    instance.profile.save()
+
+class Business(models.Model):
+    bName = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    bEmail = models.EmailField(max_length=100)            

@@ -117,3 +117,15 @@ class Post(models.Model):
 
     def delete_post(self):
         self.delete()
+
+
+       @classmethod
+    def get_single_post(cls,id):
+        return cls.objects.get(id=id)
+
+    @classmethod
+    def update_post(cls,id,content):
+        cls.objects.filter(pk = id).update(title=content)
+        new_name_object = cls.objects.get(pk=id)
+        new_name = new_name_object.title
+        return new_name    

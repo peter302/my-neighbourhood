@@ -102,3 +102,12 @@ class Business(models.Model):
 
     class Meta:
         ordering =['bName']
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=50)
+    content = models.TextField()
+    image = models.ImageField(upload_to='posts/',blank=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)        

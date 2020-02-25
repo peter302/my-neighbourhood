@@ -75,4 +75,10 @@ class Business(models.Model):
     bName = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
-    bEmail = models.EmailField(max_length=100)            
+    bEmail = models.EmailField(max_length=100)
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()

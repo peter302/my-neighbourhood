@@ -40,4 +40,13 @@ class Neighborhood(models.Model):
         return new_occupants
 
     def __str__(self):
-        return self.name    
+        return self.name
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE,null=True, blank=True)
+    bio = models.TextField(blank=True)
+    email = models.EmailField(max_length=100, blank=True)
+    name = models.CharField(max_length=50, blank=True)
+    profile_pic = models.ImageField(upload_to='images/', blank=True)            

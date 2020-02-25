@@ -8,3 +8,10 @@ from .forms import *
 def index(request):
     hoods = Neighborhood.objects.all()
     return render(request, 'main/index.html', {'hoods':hoods})
+
+@login_required(login_url='/accounts/login/?next=/')
+def hood(request,id):
+    hoods = Neighborhood.objects.get(id=id)
+    bus = hoods.business_set.all
+    posts  = hoods.post_set.all
+    return render(request, 'main/hood.html', {'hoods':hoods, 'bus':bus, 'posts':posts})    

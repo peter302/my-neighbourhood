@@ -110,4 +110,10 @@ class Post(models.Model):
     image = models.ImageField(upload_to='posts/',blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)        
+    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()

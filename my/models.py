@@ -128,4 +128,12 @@ class Post(models.Model):
         cls.objects.filter(pk = id).update(title=content)
         new_name_object = cls.objects.get(pk=id)
         new_name = new_name_object.title
-        return new_name    
+        return new_name
+
+
+    def __str__(self):
+
+        return self.title
+
+    class Meta:
+        ordering =['-date_posted']

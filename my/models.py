@@ -49,4 +49,14 @@ class Profile(models.Model):
     bio = models.TextField(blank=True)
     email = models.EmailField(max_length=100, blank=True)
     name = models.CharField(max_length=50, blank=True)
-    profile_pic = models.ImageField(upload_to='images/', blank=True)            
+    profile_pic = models.ImageField(upload_to='images/', blank=True)
+
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def __str__(self):
+        return self.name

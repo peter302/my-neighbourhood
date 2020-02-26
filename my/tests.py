@@ -109,4 +109,37 @@ class BuninessTestClass(TestCase):
         self.assertEquals(bussiness.bName,'techs')
 
     def tearDown(self):
-        Business.objects.all().delete()              
+        Business.objects.all().delete()
+
+
+class NeighborhoodTestClass(TestCase):
+
+    def setUp(self):
+
+        self.new_user = User(username='Titus', email='titusouko@gmail.com', password='1234')
+        self.new_user.save()
+        self.new_hood = Neighborhood(name="Lavington", location="Nairobi", occupants="333",health_contact="123", police_contact="444", hood_pic="me.png", admin=self.new_user)
+
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_hood,Neighborhood))
+
+    def test_save_post(self):
+        self.new_hood.create_neigborhood()
+        hood = Neighborhood.objects.all()
+        self.assertTrue(len(hood)>0)
+
+    def test_delete_post(self):
+        self.new_hood.create_neigborhood()
+        self.new_hood.delete_neigborhood()
+        hood = Neighborhood.objects.all()
+        self.assertTrue(len(hood)==0)
+
+    def test_update_neigborhood_method(self):
+        self.new_hood.create_neigborhood()
+        new_name = 'Lavington'
+        update = self.new_hood.update_neighborhood(self.new_hood.id,new_name)
+        self.assertEqual(update,new_name)
+
+    def tearDown(self):
+        Neighborhood.objects.all().delete()                      

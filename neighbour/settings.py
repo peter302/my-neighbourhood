@@ -39,9 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'my',
     'bootstrap4',
-
     'pyuploadcare.dj',
 ]
+
+UPLOADCARE = {
+    'pub_key': '3d2b25cba852f14a9783',
+    'secret': '911e8b531ac06da94dcd',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,7 +84,7 @@ WSGI_APPLICATION = 'neighbour.wsgi.application'
 DATABASES = {
     'default': {
                 'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'neighborhood',
+                'NAME': 'neighbour',
                 'USER': 'peter',
                 'PASSWORD': 'peter'
     }

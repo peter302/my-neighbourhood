@@ -20,7 +20,7 @@ class Neighborhood(models.Model):
     def delete_neigborhood(self):
         self.delete()
 
-        @classmethod
+    @classmethod
     def find_neigborhood(cls, neigborhood_id):
         hood= cls.objects.get(id=neigborhood_id)
         return hood
@@ -83,7 +83,7 @@ class Business(models.Model):
     def delete_business(self):
         self.delete()
 
-        @classmethod
+    @classmethod
     def find_business(cls,business_id):
         business= cls.objects.get(id=business_id)
         return business
@@ -119,7 +119,7 @@ class Post(models.Model):
         self.delete()
 
 
-       @classmethod
+    @classmethod
     def get_single_post(cls,id):
         return cls.objects.get(id=id)
 

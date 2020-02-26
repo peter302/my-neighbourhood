@@ -49,7 +49,7 @@ class Profile(models.Model):
     bio = models.TextField(blank=True)
     email = models.EmailField(max_length=100, blank=True)
     name = models.CharField(max_length=50, blank=True)
-    profile_pic = models.ImageField(upload_to='images/', blank=True)
+    profile_pic = models.ImageField(upload_to='images/', default='img/default.jpg')
 
 
     def save_profile(self):

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'my',
     'bootstrap4',
     'pyuploadcare.dj',
+    'registration'
 ]
 
 UPLOADCARE = {
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'neighbour.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

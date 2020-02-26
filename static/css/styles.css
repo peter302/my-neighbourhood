@@ -1,0 +1,7 @@
+.card:hover{
+    opacity: 1;
+    transform:  rotate(20deg);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+
+
+}

@@ -1,0 +1,58 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container">
+            {% if user.is_authenticated%}
+            <!-- Brand -->
+            <a class="navbar-brand pt-0 waves-effect" href="/" style="font-weight:bold;">
+              <i>HOOD WATCH </i>
+            </a>
+
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <!-- Left -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link waves-effect" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <!-- Right -->
+                <ul class="navbar-nav nav-flex-icons">
+
+                    <li class="nav-item">
+                            <a href="{% url 'update'  %}">
+                       <i class="fas fa-edit"></i>&nbsp;
+                       &nbsp; Edit Profile
+                       </li>
+                    <li class="nav-item">
+                            <li class="mb-4">
+                                     <a href="{% url 'profile' %}">
+                                        <img class="rounded-circle nav-img"src="{{ user.profile.profile_pic.url }}" alt="">
+                                        &nbsp; Profile
+                                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <li class="mb-4">
+                                 <a href="/logout">
+
+                                    &nbsp; Logot
+                                </a>
+                </li>
+
+                </ul>
+
+            </div>
+            {% endif%}
+        </div>
+    </nav>
+    <!-- Navbar -->
